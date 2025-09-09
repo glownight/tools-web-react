@@ -42,7 +42,7 @@ function App() {
         return raw ? JSON.parse(raw) : [];
       } catch { return []; }
     });
-    const [recent, setRecent] = useState<string[]>(() => {
+    const [recent] = useState<string[]>(() => {
       try {
         const raw = localStorage.getItem("tool_recent");
         return raw ? JSON.parse(raw) : [];
