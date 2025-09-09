@@ -21,7 +21,7 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, className }) => {
   const typeEffect = useCallback(() => {
     if (isPaused) return;
 
-    const typeSpeed = 350; // 打字速度
+    const typeSpeed = 80; // 更快的打字速度，避免首屏空白
 
     if (displayText === text) {
       // setShowHeart(true);
@@ -40,13 +40,13 @@ const TypeWriter: React.FC<TypeWriterProps> = ({ text, className }) => {
   }, [typeEffect]);
 
   return (
-    <span className="inline-flex items-center gap-2">
+    <span className="inline-flex items-center gap-2" aria-live="polite">
       <span
         onClick={handleClick}
         className={className}
         style={{ cursor: "pointer" }}
       >
-        {displayText}
+        {displayText || text}
       </span>
       {/* {showHeart && (
         <span className={styles.heart}>❤️</span>
